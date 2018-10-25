@@ -22,11 +22,12 @@ export class LoginService {
   loginUser(user) {
     // let url = `${URL_ENDPOINTS.aws1}/login`;
     let url = `${URL_ENDPOINTS.AWS}/api/login`;
-    console.warn("call", url);
 
     const body = new HttpParams()
       .set('email', user.email)
       .set('password', user.password)
+
+    console.warn("call", url, body);
 
     return this._http.post(url, body)
   }

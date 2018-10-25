@@ -1,0 +1,64 @@
+<div class="login">
+  <div *ngIf="!onSelectOption">
+    <h3 class="subtitle--medium-blue">LOGIN</h3>
+    <button class="button--login"> SIGN IN WITH FACEBOOK</button>
+    <button class="button--login"> SIGN IN WITH GMAIL</button>
+  </div>
+  <h3 class="subtitle--medium-blue">{{formTitle}}</h3>
+  <form
+    class="md-form"
+    *ngIf="formTitle"
+    (ngSubmit)="onFormSumbit()"
+  >
+    <input
+      *ngFor="let field of fields"
+      (blur)="onType($event)"
+      type="{{field.type}}"
+      name="{{field.name}}"
+      placeholder="{{field.placeholder}}"
+    >
+    <button
+      type="submit"
+      class="button--form-submit"
+    >SUBMIT</button>
+  </form>
+  <ul
+    class="login__options"
+    (click)="onSelectLogin()"
+  >
+    <li (click)="onChangeState('Sign-in')">
+      <input
+        id="Sign-in"
+        name="selected"
+        type="radio"
+      >
+      <label
+        for="Sign-in"
+        class="login__label"
+      >Sign in with an existing account</label>
+    </li>
+    <li (click)="onChangeState('Recover')">
+      <input
+        id="Recover"
+        name="selected"
+        type="radio"
+      >
+      <label
+        for="Recover"
+        class="login__label"
+      >Forgot password</label>
+    </li>
+    <li (click)="onChangeState('Create-an-account')">
+      <input
+        id="Create-an-account"
+        name="selected"
+        type="radio"
+      >
+      <label
+        for="Create-an-account"
+        class="login__label"
+      >Create account</label>
+    </li>
+  </ul>
+
+</div>

@@ -1,0 +1,175 @@
+<h2 class="subtitle--left">Dashboard</h2>
+<hr>
+
+<div *ngIf="usersPayload.medical?.length == 0">
+  <app-medical-background></app-medical-background>
+</div>
+
+<div class=" row">
+
+  <div class="col-2-of-4">
+    <div class="card">
+      <h3 class="card__user"> {{usersPayload.info?.firstName || ' '}} {{usersPayload.info?.lastName || ' '}}</h3>
+      <div class="card__user--initials">
+        <img
+          class="card__img"
+          *ngIf="usersPayload.info?.avatar"
+          [src]="usersPayload.info?.avatar  "
+          alt="User Image"
+        >
+      </div>
+      <h3 class="card__location">{{usersPayload.info?.state || ' '}}, {{usersPayload.info?.city || ' '}} </h3>
+      <div class="card progress">
+        <div class="progress__bar-background ">
+          <div
+            class="progress__bar"
+            [style.width.%]="percentage"
+          ></div>
+        </div>
+        <span class="progress__status">{{ percentage }}% Complete</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col-2-of-4">
+    <div class="card">
+      <span
+        class="button--edit"
+        (click)="toggleEdit()"
+      >Edit</span>
+      <h2 class="subtitle--left-small  ">Your information:</h2>
+      <div *ngIf='!isEdit'>
+        <div *ngIf="usersPayload.info">
+          <span class="text--small ">Name:</span>
+          <p>
+            {{usersPayload.info?.firstName || ' '}}
+            {{usersPayload.info.lastName}}</p>
+        </div>
+        <div>
+          <span class="text--small ">Phone Number:</span>
+          <p>{{usersPayload.info?.phoneNumber}}</p>
+        </div>
+        <div>
+          <span class="text--small ">Address:</span>
+          <p>{{usersPayload.info?.address}}</p>
+        </div>
+        <div>
+          <span class="text--small ">City:</span>
+          <p>{{usersPayload.info?.city}}</p>
+        </div>
+        <div>
+          <span class="text--small ">State:</span>
+          <p>{{usersPayload.info?.state}}</p>
+        </div>
+      </div>
+
+
+      <form
+        class="form-primary"
+        *ngIf='isEdit'
+      >
+        <div class="form-primary__flex">
+          <div>
+            <span class="text--small ">Name:</span>
+            <input
+              class="form-primary__input"
+              (blur)="setFormValues($event)"
+              name="firstName"
+              type="text"
+              placeholder="{{usersPayload.info?.firstName || ''}}"
+            >
+          </div>
+          <div>
+            <span class="text--small ">Last Name:</span>
+            <input
+              class="form-primary__input"
+              (blur)="setFormValues($event)"
+              name="lastName"
+              type="text"
+              value="{{usersPayload.info.lastName}}"
+            >
+          </div>
+        </div>
+        <div>
+          <span class="text--small ">Phone number:</span>
+          <input
+            class="form-primary__input"
+            type="text"
+            (blur)="setFormValues($event)"
+            name="phoneNumber"
+            value="{{usersPayload.info.phoneNumber}}"
+          >
+        </div>
+        <div>
+          <span class="text--small ">Address:</span>
+          <input
+            class="form-primary__input"
+            type="text"
+            (blur)="setFormValues($event)"
+            name="address"
+            placeholder="{{usersPayload.info.address}}"
+          >
+        </div>
+        <div>
+          <span class="text--small ">City:</span>
+          <input
+            class="form-primary__input"
+            type="text"
+            (blur)="setFormValues($event)"
+            name="city"
+            placeholder="{{usersPayload.info.city}}"
+          >
+        </div>
+        <div>
+          <span class="text--small ">State:</span>
+          <input
+            class="form-primary__input"
+            type="text"
+            (blur)="setFormValues($event)"
+            name="state"
+            placeholder="{{usersPayload.info.state}}"
+          >
+        </div>
+
+        <button
+          (click)="onSaveData()"
+          class="button--save"
+        >Save</button>
+      </form>
+    </div>
+
+
+  </div>
+
+</div>
+<div class="row">
+  <div class="col-2-of-4">
+    <div class="card">
+      <div class="card__flex">
+        <div class="card__flex--one ">
+          <div class="card__user--initials">
+            <i class="icon-patients-info"></i>
+          </div>
+        </div>
+        <div class="card__flex--two  card__user--status">
+          <strong>Medical Background complete.</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-2-of-4">
+    <div class="card">
+      <div>
+        <span class="text--dr-blue">Next appointment date:</span>
+        <div>
+          <h3>No appoinmnets has been scheduled at this time</h3>
+        </div>
+        <!-- <div>
+          <time>Septemeber 28, 2018</time>
+          <span>memebership <button class="button--active-plan">PERSONAL</button> </span>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</div>

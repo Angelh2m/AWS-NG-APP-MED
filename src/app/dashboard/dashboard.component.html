@@ -1,0 +1,60 @@
+<app-navigation
+  theme="dark"
+  dashboard="true"
+></app-navigation>
+
+
+<div class="dashboard">
+  <nav class="h-navigation">
+    <li>
+      <a
+        class="h-navigation__elements"
+        [routerLink]="['../dashboard']"
+      >
+        <i class="icon-home"></i>
+        Dashboard
+      </a>
+    </li>
+    <li>
+      <a
+        class="h-navigation__elements"
+        [routerLink]="['questions']"
+      >
+        <i class="icon-email"></i>x
+        Questions
+      </a>
+    </li>
+    <li>
+      <a
+        class="h-navigation__elements"
+        [routerLink]="['payment-history']"
+      >
+        <i class="icon-id-card"></i>
+        Payments
+      </a>
+    </li>
+    <li>
+      <a
+        class="h-navigation__elements"
+        [routerLink]="['appointments']"
+      >
+        <i class="icon-reservation"></i>
+        Appointments
+      </a>
+    </li>
+    <li>
+      <a
+        class="h-navigation__elements"
+        [routerLink]="['recomendations']"
+      >
+        <i class="icon-travel"></i>
+        Recomendations
+      </a>
+    </li>
+  </nav>
+  <section class="dashboard__container">
+    <div class="dashboard__wrapper">
+      <router-outlet></router-outlet>
+    </div>
+  </section>
+</div>

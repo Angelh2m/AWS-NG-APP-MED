@@ -12,9 +12,9 @@ export class LoginInterceptor implements HttpInterceptor {
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
         let token = JSON.parse(this.userService.getToken());
-
         // If there is no token!
         if (!token) { token = ''; }
+
 
         const headers = new HttpHeaders({
             // 'access-control-expose-headers': 'x-total-count',
@@ -25,6 +25,7 @@ export class LoginInterceptor implements HttpInterceptor {
             // 'Pragma': 'no-cache',
             // 'Expires': '0',
         });
+        console.warn('HEADERS SENT', headers);
 
         const newRequest = req.clone({
             headers

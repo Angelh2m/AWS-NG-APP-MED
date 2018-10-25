@@ -1,0 +1,149 @@
+<h2 class="subtitle--left">Conversation History</h2>
+<hr>
+
+<div class="conversation">
+
+  <!-- CONTROLL -->
+  <div class="conversation__controls">
+    <i
+      (click)="activeElement = 'newQuestion' "
+      class="button--respond"
+    >New Question</i>
+  </div>
+
+  <!-- LIST OF MESSAGES -->
+  <div class="list">
+    <div class="list__header">
+      <span class="">Total Messages</span>
+      <span>({{ questionsList?.length}}) </span>
+    </div>
+
+    <div
+      *ngFor="let userQ  of questionsList ;let i=index "
+      (click)=" selectMessage(i)"
+    >
+      <div
+        class="list__container"
+        [ngClass]="{active: isClicked[i]}"
+        (click)="activeElement = ' ' "
+        #questionBox
+      >
+        <div class="">
+          <div class="list__user-date">
+            <span class="text--username">You have asked:</span>
+            <span>{{userQ.date | date: 'dd/MM/yyyy'}}</span>
+          </div>
+          <span>{{userQ.subject}} </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- No content -->
+  <div
+    *ngIf="activeElement == '' &&  this.isClicked.length == 0 "
+    class="messages new-question"
+  >
+    <h2 class="conversation__select_question">Select or ask a new question </h2>
+  </div>
+
+  <!-- NEw FORM -->
+  <form
+    *ngIf="activeElement == 'newQuestion'"
+    [formGroup]="question"
+    (ngSubmit)="askQuestion()"
+    class="card"
+  >
+    <h2 class="subtitle--left-small"></h2>
+    <div class="editor">
+      <div class="editor__header">
+        <span> Subject </span>
+        <input
+          formControlName="subject"
+          type="text"
+          placeholder="Question title"
+        >
+      </div>
+      <div class="editor__text-area">
+        <textarea
+          formControlName="content"
+          placeholder="How can we help you?"
+        ></textarea>
+      </div>
+    </div>
+    <button
+      type="submit"
+      class="button--blue"
+    >Send</button>
+  </form>
+
+
+
+  <!-- EMAILS -->
+  <div
+    class="messages"
+    *ngIf="this.activeElement == ' ' && this.isClicked.length >= 1"
+  >
+    <span class="text--message-details">Date: {{currentMessage.date | date}}
+    </span>
+    <hr>
+    <p>
+      <strong>Question: {{currentMessage.subject}} </strong>
+      <br>
+      Details: {{currentMessage.content}}
+    </p>
+    <hr>
+
+
+    <p>
+      <strong>Doctor's answer:</strong>
+      <br>
+      <span *ngIf="!currentMessage.doctosAnswer">This answer will be answer shortly</span>
+      <span> {{currentMessage.doctosAnswer}}</span>
+    </p>
+    <hr>
+    <h4 class="text--category">Add a a comment to your question and answers</h4>
+    <p class="conversation__main-response">
+      <div
+        class="conversation__replies"
+        *ngFor="let item of currentMessage.comments"
+      >
+        <div class="conversation__indicator--user">
+          <strong class="text--category"> {{item.user}} </strong>
+          <p class="date"> {{item.comment}} </p>
+          <span class="conversation__indicator--date"> {{item.date | date }} </span>
+        </div>
+
+      </div>
+
+      <!-- Create new Question  FORM-->
+      <div class="editor__text-area">
+        <form>
+
+          <textarea
+            class="editor__text-area"
+            placeholder="Type your response here..."
+            name="commentResponse"
+            [(ngModel)]="commentResponse"
+          ></textarea>
+
+          <!-- <div
+            appFileUpload
+            (filesDropped)='hanldeDrop($event)'
+            (filesHovered)='dropzoneState($event)'
+            class="button--drop-upload"
+          >
+            <span>DROP YOUR FILES HERE</span>
+          </div> -->
+
+          <button
+            (click)="commentOnQuestion()"
+            type="submit"
+            class="button--blue"
+          >Send</button>
+        </form>
+      </div>
+
+
+  </div>
+</div>

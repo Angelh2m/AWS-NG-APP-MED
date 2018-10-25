@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
-// import { UserService } from '../../services/user/user.service';
 
-// import { LoginService } from '../../services/login/login.service';
 import { PaymentsService } from '../../client/payments/payments.service';
+import { LoginService } from 'src/app/client/login/login.service';
+import { UserService } from 'src/app/client/user/user.service';
 
 @Component({
   selector: 'app-navigation',
@@ -19,40 +19,40 @@ export class NavigationComponent implements OnInit {
 
   constructor(
     private el: ElementRef,
-    // public _userService: UserService,
-    // private _payments: PaymentsService,
-    // private _login: LoginService
+    public _userService: UserService,
+    private _payments: PaymentsService,
+    private _login: LoginService
   ) { }
 
   ngOnInit() {
 
-    // this._userService.isLogged();
-    // this._userService.avatarObsv
-    //   .subscribe(avatar => {
-    //     this.usersAvatar = avatar
-    //   });
-    // this._login.loginModalSwitch
-    //   .subscribe((resp) => {
-    //     this.isActive = false;
-    //     this.showModal = false;
-    //     this.burger.nativeElement.checked = false
-    //   })
+    this._userService.isLogged();
+    this._userService.avatarObsv
+      .subscribe(avatar => {
+        this.usersAvatar = avatar
+      });
+    this._login.loginModalSwitch
+      .subscribe((resp) => {
+        this.isActive = false;
+        this.showModal = false;
+        this.burger.nativeElement.checked = false
+      })
 
   }
 
-  // toggle() {
-  //   this.isActive = !this.isActive;
-  // }
+  toggle() {
+    this.isActive = !this.isActive;
+  }
 
-  // loginModal() {
-  //   this.showModal = !this.showModal;
-  //   this.burger.nativeElement.checked = false
-  //   this.isActive = !this.isActive;
-  // }
-  // closeModal() {
-  //   this.showModal = !this.showModal;
-  //   this._login.loginModal.next(this.showModal);
-  //   this.burger.nativeElement.checked = false
-  // }
+  loginModal() {
+    this.showModal = !this.showModal;
+    this.burger.nativeElement.checked = false
+    this.isActive = !this.isActive;
+  }
+  closeModal() {
+    this.showModal = !this.showModal;
+    this._login.loginModal.next(this.showModal);
+    this.burger.nativeElement.checked = false
+  }
 
 }

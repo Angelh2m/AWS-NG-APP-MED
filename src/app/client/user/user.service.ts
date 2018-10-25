@@ -86,23 +86,25 @@ export class UserService {
 
     // IF THERE IS NO EMAIL USER DOES NOT EXIST
     if (this.usersPayload.email == '') {
+
       // console.warn('FETCH A USER FROM API THERE IS NO EMAIL');
       return this._http.get(`${URL_ENDPOINTS.AWS}/api/profile`).pipe(
         tap(el => {
-          console.log(el);
+          console.log('REQUEST USER ', el);
           return el
         }),
         map((el: any) => {
           this.usersPayload = { ...el.user }
+          console.log(this.usersPayload);
           // Broadcast the users avatar to header
           this.avatar.next(this.usersPayload.info.avatar);
-          console.log(this.usersPayload);
           return el.user
         }),
         catchError((err) => {
           if (err)
-            console.log('USERS TOKEN HAS EXPIRED');
-          this.router.navigate(['/']);
+            console.log('Error in the request');
+          // @TODO ADD NAVIGATE
+          // this.router.navigate(['/']);
           // @TODO REMOVE THE TOKEN TOO!
           throw err;
         })
