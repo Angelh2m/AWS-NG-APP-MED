@@ -1,0 +1,30 @@
+<app-navigation theme="dark"></app-navigation>
+<div class="payments ">
+  <div class="payments__container ">
+    <div class="col-1-of-3">
+      <i class="icon-selectPlan"></i>
+      <h6><a
+          [routerLink]="['../payments']"
+          routerLinkActive="link--active"
+        >1. Select your plan</a></h6>
+    </div>
+    <div class="col-1-of-3">
+      <i class="icon-payment"></i>
+      <h6><a
+          [routerLink]="['card']"
+          routerLinkActive="link--active"
+        >2. Make a payment</a></h6>
+    </div>
+    <div class="col-1-of-3">
+      <i class="icon-receipt"></i>
+      <h6><a
+          [routerLink]="['payment-confirmation']"
+          routerLinkActive="link--active"
+        >3. Confirmation</a></h6>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
+
+<!-- <app-footer></app-footer> -->

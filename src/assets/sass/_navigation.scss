@@ -1,0 +1,21 @@
+.charcoal-background {
+  background-color: #0c0c0c9e;
+  content: '';
+  position: absolute;
+  width: 200vw;
+  height: 100vh;
+  left: -100vw;
+  z-index: 9;
+  position: fixed;
+  top: 0;
+}
+
+.closeModal {
+  position: fixed;
+  z-index: 999;
+  right: 3rem;
+  top: 3rem;
+  background-color: white;
+  padding: 1rem 2rem;
+  border-radius: 50%;
+}

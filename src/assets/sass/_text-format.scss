@@ -1,0 +1,118 @@
+.text--small {
+  font-size: 1.3rem;
+  color: $text-color;
+  text-align: justify;
+  font-weight: 100;
+}
+
+.text--green {
+  color: $color-primary;
+}
+
+.text--300 {
+  font-weight: 300;
+}
+
+.text--right {
+  text-align: right;
+}
+
+.text--left {
+  text-align: left;
+}
+
+.text--center {
+  text-align: center;
+}
+
+.text--small {
+  font-size: 1.3rem;
+  color: #76879b;
+  text-align: center;
+}
+
+.text--dr-blue {
+  color: $color-dr-blue;
+  font-size: 1.5rem;
+  display: block;
+}
+
+.text--right {
+  text-align: right;
+  width: 100%;
+}
+
+.text--center {
+  text-align: center;
+  width: 100%;
+  display: block;
+}
+
+.text--username,
+.text--category {
+  color: #5f6d86;
+  font-weight: 600;
+}
+
+.text--category {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+
+}
+
+.text--message-details {
+  font-size: 1rem;
+  font-size: 1rem;
+  display: block;
+  margin-bottom: .5rem;
+}
+
+
+// MISION
+.subtitle {
+  font-size: 2.5rem;
+  text-align: center;
+  color: $title-color;
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
+
+  @include tablet {
+    font-size: 3rem;
+  }
+
+  &--secondary {
+    font-size: 2rem;
+    text-align: center;
+    color: $title-color;
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+    font-weight: 300;
+  }
+
+  &--left-small {
+    text-align: left;
+    color: $title-color;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &--left {
+    text-align: left;
+    color: $title-color;
+    font-size: 2.5rem;
+    margin-top: 3rem;
+  }
+
+  &__small {
+    text-align: center;
+    font-size: 1.4rem;
+    display: block;
+    margin-bottom: 5rem;
+  }
+
+  &--medium-blue {
+    color: #9cdbff;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+}

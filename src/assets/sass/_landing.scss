@@ -1,0 +1,414 @@
+$text-color: #525f7f;
+$title-color: #32325d;
+
+.hero {
+  h1 {
+    font-size: 5.5vw;
+    margin-bottom: 0rem;
+    margin-top: 10%;
+    text-shadow: -1px 1px 5px rgba(0, 0, 0, 0.6);
+
+    @include tablet {
+      font-size: 5vw;
+    }
+  }
+
+  h2 {
+    font-size: 4vw;
+    margin-bottom: 10%;
+    text-shadow: -1px 1px 5px rgba(0, 0, 0, 0.6);
+
+    @include tablet {
+      font-size: 3vw;
+    }
+  }
+
+  &__float {
+    position: absolute;
+    top: 0;
+    color: white;
+    margin: 0 auto;
+    padding: 5rem 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+  }
+}
+
+.pill {
+  position: absolute;
+  width: 100vw;
+  bottom: 0;
+  bottom: -25px;
+  z-index: -10;
+}
+
+.pills,
+.pills2,
+.pills3 {
+  position: relative;
+  // background-color: greenyellow;
+  background-color: rgba(138, 43, 226, 0.14);
+  display: inline-block;
+  padding: .5rem;
+  margin-right: 1.5rem;
+  border-radius: 5rem;
+  padding: 0rem 3rem;
+  color: rgba(138, 43, 226, 0.7);
+}
+
+.pill__container {
+  // width: 200vw;
+  width: 400vw;
+  margin-bottom: 1.5rem;
+}
+
+.pills {
+  transform: translate(50vw);
+  // animation: flow 50s infinite linear, infinite;
+}
+
+.pills2 {
+  transform: translate(25vw);
+  // animation: flow 80s infinite linear, cubic-bezier(.47, -0.44, .49, 1.46), infinite both;
+}
+
+.pills3 {
+  transform: translate(0vw);
+
+  // animation: ease, step-start, cubic-bezier(0.1, 0.7, 1.0, 0.1);
+  // animation: flow 60s infinite linear both;
+  &:nth-last-child(3) {
+    animation-delay: 1s;
+  }
+
+  &:nth-last-child(2) {
+    animation-delay: 2s;
+  }
+
+  &:nth-last-child(1) {
+    animation-delay: 1s;
+  }
+}
+
+@keyframes flow {
+  0% {
+    // transform: translateX(100vw);
+  }
+
+  50% {}
+
+  100% {
+    transform: translateX(-230vw)
+  }
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(200vw);
+  }
+
+  50% {}
+
+  100% {
+    transform: translateX(-10vw)
+  }
+}
+
+@keyframes y {
+  to {
+    top: 0;
+  }
+
+  from {
+    top: -145px;
+  }
+}
+
+// Header submenu
+.link--active {
+  color: $light-blue !important;
+}
+
+.heading--green {
+  color: $color-primary;
+  font-size: 2.5rem;
+}
+
+.heading--center {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.appointment {
+  margin: 3rem 0px;
+}
+
+.c {
+  &__subtitle {
+    font-size: 2.5rem;
+    text-align: center;
+    color: #32325d;
+    margin-bottom: 4.5rem;
+    margin-top: 1.5rem;
+
+    @include tablet {
+      font-size: 3rem;
+    }
+  }
+
+  &__content {
+    margin-bottom: 5rem;
+  }
+}
+
+.our-mission {
+  font-size: 2rem;
+  color: #76879b;
+  text-align: center;
+
+  @include tablet {
+    font-size: 3.3rem;
+  }
+}
+
+// HOW IT WORKS
+.how-it-works {
+  position: relative;
+
+  @include tablet {
+    display: flex;
+  }
+
+
+  &__triangle {
+    margin-bottom: 3rem;
+    position: relative;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+
+    span {
+      position: absolute;
+      z-index: 9999999999;
+      top: 2px;
+      left: -.5rem;
+      color: white;
+      font-style: initial;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      // border-style: solid;
+      // border-width: 2.5rem 3rem;
+      // border-color: #3e4890 transparent transparent transparent;
+      left: -1.5rem;
+      width: 0;
+      height: 0;
+      border-top: 5rem solid rgba(5, 6, 51, 0.69);
+      border-right: 6rem solid transparent;
+      left: -1.5rem;
+
+
+    }
+  }
+
+
+  &__steps {
+    border: solid 1px #e6e6e6;
+    border-radius: 5px;
+    padding: 1.5rem;
+    margin-bottom: 2.5rem;
+    background-color: white;
+    // box-shadow: inset 0px 0px 2px -1px;
+    position: relative;
+
+    .heading--green {
+      margin-top: 3.5rem;
+    }
+
+    @include tablet {
+      flex: 1;
+      margin: .5rem;
+    }
+  }
+}
+
+.why-our-service {
+  @include tablet {
+    display: flex;
+    align-items: center;
+    margin-top: 6rem;
+  }
+
+  &__svg {
+    // padding: 2rem;
+    border-radius: 5px;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 4rem;
+    position: relative;
+  }
+}
+
+.card {
+  position: relative;
+}
+
+.card--featured {
+  position: absolute;
+  background-color: white;
+  width: 65vw;
+  margin: 0 auto;
+  top: 50%;
+  margin-left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  padding: 15px 15px;
+
+
+  @include tablet {
+    width: 31vw;
+  }
+}
+
+.spacer {
+  margin-bottom: 4.5rem !important;
+}
+
+.text--blue {
+  color: #0099e5;
+}
+
+.table-text--right {
+  text-align: center;
+  width: auto;
+  color: #43d394;
+  font-size: 3rem;
+  line-height: 0;
+  position: absolute;
+  right: 3rem;
+  top: 2rem;
+}
+
+.faq {
+  $c: &;
+
+  &__question {
+    font-size: 2rem;
+  }
+
+  &__answers {
+    background-color: whitesmoke;
+    padding: 7px;
+    border-radius: 5px;
+  }
+
+  &__container {
+    margin: 10rem 0rem;
+  }
+
+  &--is-hiden {
+    #{$c}__wrap {
+      overflow: hidden;
+      height: 0;
+      height: 0;
+      padding: 0;
+      padding: 1rem 0rem;
+      max-height: 0;
+      transition: max-height .50s ease-out, padding 0s ease-out;
+      // transition: max-height 2s;
+      height: auto;
+    }
+  }
+
+  &--is-active {
+    #{$c}__wrap {
+      max-height: 200px;
+      padding: 1rem 0rem;
+      height: auto;
+      max-height: auto;
+      transition: max-height 1.15s ease-out;
+    }
+  }
+}
+
+footer {
+  background-image: linear-gradient(0, #352e66, #404d97);
+
+  .copyrights {
+    color: #bdccd4;
+    font-size: 1rem;
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+  }
+}
+
+
+
+.login {
+  background-color: #32325d;
+  padding: 5rem;
+  position: fixed;
+  z-index: 999;
+  margin: 0 auto;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  margin-top: 8rem;
+  z-index: 99999;
+
+  width: 35rem;
+
+  li {
+    cursor: pointer;
+    line-height: 1;
+    margin: 1.5rem 0rem;
+  }
+
+  &__options {
+    list-style: none;
+    margin-bottom: 2rem;
+  }
+
+  &__label {
+    margin-left: 2rem;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+}
+
+// FORM MODULE
+.md-form {
+  input {
+    background-color: transparent;
+    border: solid 0px;
+    width: 100%;
+    color: white;
+    border-bottom: solid 1px#8798ab;
+    line-height: 4;
+    transition: all 1s;
+
+    &::-webkit-input-placeholder {
+      /* Chrome/Opera/Safari */
+      color: white;
+      transition: all 1s;
+    }
+
+    &:focus {
+      padding-left: 1rem;
+
+      &::-webkit-input-placeholder {
+        /* Chrome/Opera/Safari */
+        color: white;
+        padding-left: 1rem;
+        transition: all 1s;
+      }
+    }
+  }
+}

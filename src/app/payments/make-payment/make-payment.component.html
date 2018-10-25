@@ -1,0 +1,140 @@
+<router-outlet></router-outlet>
+
+<div class="row row--spacer">
+
+  <div class="col-2-of-4">
+    <div class="payment-card row">
+
+      <div>
+        <h2 class="subtitle">Payment Method</h2>
+      </div>
+      <div class="payment-card__header">
+        <div class="payment-card__header--flex-one">
+          <!-- <input class="button--radio" type="radio"> -->
+          <span class="button--radio-selected"></span>
+          <label for="">Credit / Debit</label>
+        </div>
+        <div class="payment-card__header--flex-one">
+          <img
+            src="https://i2.wp.com/devonmoving.com/wp-content/uploads/2015/01/credit-card-icons-png.png?ssl=1"
+            alt=""
+          >
+        </div>
+      </div>
+      <div class="payment-card__container">
+        <form>
+          <label>
+            <input
+              name="cardholder-name"
+              class="field field--text is-empty"
+              placeholder="Jane Doe"
+              autocomplete="off"
+            />
+            <span>
+              <span>Name</span>
+            </span>
+          </label>
+          <label>
+            <input
+              class="field field--text is-empty"
+              type="tel"
+              placeholder="(123) 456-7890"
+            />
+            <span>
+              <span>Phone number</span>
+            </span>
+          </label>
+          <label>
+            <div
+              id="card-element"
+              class="field is-empty"
+            ></div>
+            <span>
+              <span>Credit or debit card</span>
+            </span>
+          </label>
+
+          <input
+            style="display: none"
+            type="text"
+          >
+          <div class="outcome">
+
+            <div
+              class="error"
+              role="alert"
+            ></div>
+
+            <div class="success"><span
+                #getToken
+                class="token"
+              ></span></div>
+          </div>
+
+          <button
+            (click)="onSubmit()"
+            type="submit"
+          >Checkout <span class="icon-arrow-right"></span> </button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-2-of-4">
+    <div *ngIf="!membership">
+      <h3>Please select a memebership</h3>
+      <a [routerLink]="['/payments']">Select my plan</a>
+    </div>
+    <div
+      class="payment"
+      *ngIf="membership"
+    >
+      <div>
+        <h2 class="subtitle">Summary</h2>
+      </div>
+
+      <div class="payment__container">
+        <div class="payment__items">
+          <span>Packet</span>
+          <strong>Full support</strong>
+        </div>
+        <div class="payment__items">
+          <span>Price</span>
+          <strong class="text--300">{{this.membership.price}}</strong>
+        </div>
+        <div class="payment__items">
+          <span>Duration</span>
+          <strong>{{this.membership.time}}</strong>
+        </div>
+        <!-- <hr> -->
+
+        <!-- <div class="payment__items">
+          <span>Discounts</span>
+          <strong class="text--300">3 Months</strong>
+        </div> -->
+        <hr>
+        <div class="payment__items">
+          <span class="text--green">Total</span>
+          <strong class="text--green">${{this.membership.total}}</strong>
+        </div>
+
+        <div class="payment__info">
+          <div>
+            <i class="icon-shield-check"></i>
+          </div>
+          <span>
+            Your payment is 100% secure. We
+            won’t store any personal or finnacial
+            information
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+</div>

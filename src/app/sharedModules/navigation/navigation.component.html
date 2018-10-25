@@ -1,0 +1,68 @@
+<nav
+  class="navigation navigation--{{theme}}"
+  [ngClass]="{'navigation--white': isActive, 'fixed': dashboard}"
+>
+  <div class="navigation__container">
+    <div class="navigation__logo">
+      <a routerLink="">SurgeryCare.</a>
+    </div>
+    <div class="navigation__burger ">
+      <input
+        #burger
+        (click)='toggle()'
+        class="navigation__button--white"
+        type="checkbox"
+        placeholder="HERE"
+        id="navi-toggle"
+      />
+      <i
+        (click)='toggle()'
+        class="navigation__burger--{{theme}} icon-editor--align-justify-solid "
+      ></i>
+      <div
+        class="navigation__background--blue"
+        for="navi-toggle"
+      ></div>
+      <img
+        class="navigation__avatar"
+        *ngIf="usersAvatar"
+        [src]="usersAvatar"
+        alt=""
+      >
+      <div
+        class="navigation__items"
+        for="navi-toggle"
+      >
+        <nav>
+          <ul>
+            <a><i
+                (click)="loginModal()"
+                class="icon-power"
+              ></i>
+              Login
+            </a>
+            <a [routerLink]="['/payments']"> <i class="icon-card"></i>
+              payments
+            </a>
+            <a [routerLink]="['/dashboard']"><i class="icon-speech"></i>
+              Dashboard
+            </a>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div *ngIf="showModal">
+  <div
+    (click)='closeModal()'
+    class="closeModal"
+  >X</div>
+  <div
+    (click)='closeModal()'
+    class="charcoal-background"
+  ></div>
+
+  <!-- <app-login></app-login> -->
+</div>

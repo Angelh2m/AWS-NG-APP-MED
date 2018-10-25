@@ -1,0 +1,482 @@
+/* You can add global styles to this file, and also import other style files */
+.container {
+  width: 100vw;
+  margin-left: -3rem;
+  overflow: hidden; }
+  .container .row {
+    padding: 3rem; }
+
+.row {
+  max-width: 114rem;
+  margin: 2.5rem auto;
+  position: relative; }
+  .row--background:before {
+    content: '';
+    position: absolute;
+    width: 100vw;
+    height: 100%;
+    background-color: #f9f9f9;
+    transform: skew(15deg, 15deg);
+    z-index: -9;
+    left: 0; }
+  .row:not(:last-child) {
+    margin-bottom: 2rem; }
+  .row::after {
+    content: "";
+    display: table;
+    clear: both; }
+  .row [class^="col-"] {
+    float: left;
+    background-color: aliceblue;
+    overflow: hidden; }
+    .row [class^="col-"]:not(:last-child) {
+      margin-right: 6rem; }
+  .row .col-4-of-4 {
+    width: 100%; }
+  .row .col-1-of-2 {
+    width: calc((100% - 6rem) / 2); }
+  .row .col-1-of-3 {
+    width: calc((100% - 2 * 6rem) / 3); }
+  .row .col-2-of-3 {
+    width: calc(2 * ((100% - 2 * 6rem) / 3) + 6rem); }
+  .row .col-1-of-4 {
+    width: calc((100% - 3 * 6rem) / 4); }
+  .row .col-2-of-4 {
+    width: calc(2 * ((100% - 3 * 6rem) / 4) + 6rem); }
+  .row .col-3-of-4 {
+    width: calc(3 * ((100% - 3 * 6rem) / 4) + 2 * 6rem); }
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  box-sizing: border-box; }
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem 3rem 0;
+  padding-top: 0; }
+
+p {
+  font-size: 1.5rem;
+  color: #525f7f;
+  font-weight: 100;
+  margin-top: 1.5rem; }
+
+img {
+  width: 100%; }
+
+@font-face {
+  font-family: 'icomoon';
+  src: url("assets/fonts/icomoon.eot?1weq4l");
+  src: url("assets/fonts/icomoon.eot?1weq4l#iefix") format("embedded-opentype"), url("assets/fonts/icomoon.ttf?1weq4l") format("truetype"), url("assets/fonts/icomoon.woff?1weq4l") format("woff"), url("assets/fonts/icomoon.svg?1weq4l#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.icon-apointments:before {
+  content: "\e900"; }
+
+.icon-arrow-right:before {
+  content: "\e901"; }
+
+.icon-bandaid:before {
+  content: "\e902"; }
+
+.icon-card:before {
+  content: "\e903"; }
+
+.icon-cog:before {
+  content: "\e904"; }
+
+.icon-dna:before {
+  content: "\e905"; }
+
+.icon-doctor:before {
+  content: "\e906"; }
+
+.icon-edit:before {
+  content: "\e907"; }
+
+.icon-editor--align-center-solid:before {
+  content: "\e908"; }
+
+.icon-editor--align-justify-solid:before {
+  content: "\e909"; }
+
+.icon-editor--align-left-solid:before {
+  content: "\e90a"; }
+
+.icon-editor--align-right-solid:before {
+  content: "\e90b"; }
+
+.icon-editor--bold-solid:before {
+  content: "\e90c"; }
+
+.icon-editor--italic-solid:before {
+  content: "\e90d"; }
+
+.icon-elilpsis-h:before {
+  content: "\e90e"; }
+
+.icon-ellipsis-v:before {
+  content: "\e90f"; }
+
+.icon-email:before {
+  content: "\e910"; }
+
+.icon-exclamation:before {
+  content: "\e911"; }
+
+.icon-home:before {
+  content: "\e912"; }
+
+.icon-icon-star-large-yellow:before {
+  content: "\e913";
+  color: #ecc81a; }
+
+.icon-id-card:before {
+  content: "\e914"; }
+
+.icon-medic-service:before {
+  content: "\e915"; }
+
+.icon-medical-history:before {
+  content: "\e916"; }
+
+.icon-paper-plane:before {
+  content: "\e917"; }
+
+.icon-patients-info:before {
+  content: "\e918"; }
+
+.icon-payment:before {
+  content: "\e919"; }
+
+.icon-pills:before {
+  content: "\e91a"; }
+
+.icon-plane:before {
+  content: "\e91b"; }
+
+.icon-power:before {
+  content: "\e91c"; }
+
+.icon-prescription-bottle:before {
+  content: "\e91d"; }
+
+.icon-procedures:before {
+  content: "\e91e"; }
+
+.icon-quote-left-solid:before {
+  content: "\e91f"; }
+
+.icon-quote-right-solid:before {
+  content: "\e920"; }
+
+.icon-receipt:before {
+  content: "\e921"; }
+
+.icon-reservation:before {
+  content: "\e922"; }
+
+.icon-Rx:before {
+  content: "\e923"; }
+
+.icon-search:before {
+  content: "\e924"; }
+
+.icon-selectPlan:before {
+  content: "\e925"; }
+
+.icon-shield-check:before {
+  content: "\e926"; }
+
+.icon-speech:before {
+  content: "\e927"; }
+
+.icon-success:before {
+  content: "\e928"; }
+
+.icon-travel:before {
+  content: "\e929"; }
+
+.icon-world:before {
+  content: "\e92a"; }
+
+.icon__container--center {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 3.5rem; }
+
+.icon--green-center {
+  color: #43d394;
+  font-size: 4rem;
+  box-sizing: border-box;
+  display: inline-block;
+  background: #d6facf;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  text-align: center;
+  padding: 25px;
+  line-height: 1; }
+
+.hero {
+  width: 100vw;
+  margin-left: -30px;
+  position: relative; }
+
+.hero h1 {
+  font-size: 6.5vw;
+  margin-bottom: 10%;
+  margin-top: 5%; }
+
+.hero h2 {
+  font-size: 4.5vw;
+  margin-bottom: 10%; }
+
+.hero__float {
+  position: absolute;
+  top: 0;
+  color: white;
+  padding: 5rem 3rem; }
+
+.hero__pills {
+  position: absolute;
+  bottom: 0px;
+  z-index: -1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column; }
+  .hero__pills span {
+    background-color: rgba(138, 43, 226, 0.7);
+    margin: 0.5rem 2rem;
+    border-radius: 30px;
+    padding: 1rem;
+    display: inline-block;
+    color: white;
+    font-size: 2vw; }
+  .hero__pills__thread {
+    display: inline-block;
+    height: 7vh; }
+    .hero__pills__thread:after {
+      content: "";
+      display: block;
+      clear: both; }
+
+@keyframes slide {
+  0% {
+    transform: translateX(100vw); }
+  50% { }
+  100% {
+    transform: translateX(-125vw); } }
+
+.button--primary {
+  background: #39b54a;
+  padding: 1rem;
+  color: white;
+  border: solid 0px;
+  border-radius: 30px; }
+
+.button--action {
+  background-color: #39b54a;
+  padding: 1.2rem;
+  margin-top: 2rem;
+  color: white;
+  font-weight: 600;
+  border: solid 0px;
+  border-radius: 10px;
+  transform: translateX(-50%);
+  margin-left: 50%;
+  width: 18rem; }
+
+.heading--green {
+  color: #43d394; }
+
+.heading--center {
+  text-align: center;
+  font-size: 2rem; }
+
+.subtitle {
+  font-size: 2.5rem;
+  text-align: center;
+  color: #32325d;
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem; }
+  .subtitle__small {
+    text-align: center;
+    font-size: 1.4rem;
+    display: block; }
+
+.text--small {
+  font-size: 1.3rem;
+  color: #525f7f;
+  text-align: justify;
+  font-weight: 100; }
+
+.appointment {
+  margin: 3rem 0px; }
+
+.c__subtitle {
+  font-size: 2.5rem;
+  text-align: center;
+  color: #32325d;
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem; }
+
+.c__content {
+  margin-bottom: 5rem; }
+
+.membership {
+  background-image: linear-gradient(-60deg, #352e66, #404d97);
+  height: 200px;
+  border-radius: 10px;
+  color: white;
+  padding: 2rem; }
+  .membership__info {
+    width: 100%;
+    display: block;
+    font-size: .9rem; }
+  .membership__price {
+    text-align: right;
+    font-size: 3rem;
+    display: block;
+    width: 100%; }
+  .membership__package-name {
+    font-size: 2rem; }
+  .membership__buy-button {
+    font-size: 1.5rem;
+    color: white;
+    background-color: #566bf1;
+    padding: .8rem;
+    border: solid 0px;
+    border-radius: 5px;
+    float: right;
+    margin-top: 15px; }
+
+.card-steps {
+  border: solid 1px #e6e6e6;
+  border-radius: 5px;
+  padding: 2rem;
+  margin: 3rem; }
+
+.card {
+  position: relative; }
+
+.card--featured {
+  position: absolute;
+  top: 22%;
+  background-color: white;
+  width: 65vw;
+  margin: 0 auto;
+  transform: translateX(-50%);
+  margin-left: 50%;
+  border-radius: 10px;
+  padding: 15px 15px; }
+
+.spacer {
+  margin-bottom: 4.5rem !important; }
+
+.text--right {
+  text-align: right;
+  width: 100%; }
+
+.text--center {
+  text-align: center;
+  width: 100%;
+  display: block; }
+
+.text--blue {
+  color: #0099e5; }
+
+.table-text--right {
+  text-align: center;
+  width: auto;
+  color: #43d394;
+  font-size: 3rem;
+  line-height: 0;
+  position: absolute;
+  right: 3rem;
+  top: 2rem; }
+
+.faq__question {
+  font-size: 2rem; }
+
+.faq__answers {
+  background-color: whitesmoke;
+  padding: 7px;
+  border-radius: 5px; }
+
+.faq__container {
+  margin: 5rem 0rem; }
+
+.faq--is-hiden .faq__wrap {
+  overflow: hidden;
+  height: 0;
+  height: 0;
+  padding: 0;
+  padding-left: 1rem;
+  max-height: 0;
+  transition: max-height .50s ease-out, padding 0s ease-out;
+  height: auto; }
+
+.faq--is-active .faq__wrap {
+  max-height: 200px;
+  padding: 1rem;
+  height: auto;
+  max-height: auto;
+  transition: max-height 1.15s ease-out; }
+
+footer {
+  background-image: linear-gradient(0, #352e66, #404d97); }
+  footer .copyrights {
+    color: #bdccd4;
+    font-size: 1rem;
+    text-align: center;
+    width: 100%;
+    display: inline-block; }
+
+table {
+  width: 100%;
+  background-color: #f7f9fa;
+  padding: 3rem;
+  margin-top: 3rem; }
+  table td {
+    font-size: 1.2rem; }
+
+tr {
+  border-bottom: solid 1px #eeeeee;
+  height: 40px;
+  display: block;
+  line-height: 3;
+  position: relative; }
+  tr th {
+    color: black;
+    text-align: left; }
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,95 @@
+.membership {
+  background-image: linear-gradient(-60deg, #352e66, #404d97);
+  height: 200px;
+  border-radius: 10px;
+  color: white;
+  width: 27rem;
+  overflow: visible;
+  margin: 0 auto;
+  margin-bottom: 4rem;
+  position: relative;
+  box-shadow: 0px 0px 14px #9e9c9c;
+
+  @include tablet {
+    width: 43vw;
+    max-width: 35rem;
+  }
+
+  &.active:before {
+    content: '';
+    position: absolute;
+    border: solid 15px #84ef9a !important;
+    left: -4%;
+    top: -5%;
+    border-radius: 18px;
+    animation: pulse 3s infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      -webkit-box-shadow: 0 0 0 0 #84ef9954;
+    }
+
+    70% {
+      -webkit-box-shadow: 0 0 0 10px #84ef9954;
+    }
+
+    100% {
+      -webkit-box-shadow: 0 0 0 0 #84ef9954;
+    }
+  }
+
+  &--blue {
+    background-image: linear-gradient(-60deg, #387cda, #41b8e8);
+    height: 200px;
+  }
+
+  &__info {
+    width: 100%;
+    display: block;
+    font-size: .9rem;
+  }
+
+  &__flex {
+    display: flex;
+    margin-top: 1rem;
+
+
+    &>* {
+      // flex: 1;
+    }
+  }
+
+  &__price {
+    text-align: right;
+    font-size: 3rem;
+    display: block;
+    width: 100%;
+
+    small {
+      font-size: 2rem;
+    }
+  }
+
+  &__package-name {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+
+
+    @include tablet {
+      font-size: 2rem;
+    }
+
+  }
+
+  &__buy-button {
+    font-size: 1.5rem;
+    color: white;
+    background-color: #566bf1;
+    padding: .8rem;
+    border: solid 0px;
+    border-radius: 5px;
+    float: left;
+    // margin-top: 15px;
+  }
+}

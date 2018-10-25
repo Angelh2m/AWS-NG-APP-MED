@@ -1,0 +1,77 @@
+table {
+  width: 100%;
+  padding: 3rem;
+  margin-top: 3rem;
+
+  td {
+    font-size: 1.2rem;
+
+    @include tablet {
+      font-size: 1.5rem;
+    }
+  }
+
+  tr {
+    border-bottom: solid 1px rgb(238, 238, 238);
+    height: 40px;
+    display: block;
+    line-height: 3;
+    position: relative;
+
+    @include tablet {
+      height: 5rem;
+      display: block;
+      position: relative;
+    }
+
+    th {
+      color: black;
+      text-align: left;
+    }
+  }
+}
+
+
+.doctors-table {
+  background-color: white;
+}
+
+.available {
+  position: absolute;
+  background-color: #43d394;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+
+  &:before {
+    content: '';
+    content: '';
+    position: absolute;
+    background-color: rgba(67, 211, 148, 0.31);
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    animation: pulsate 3s infinite ease-in-out;
+    animation-delay: 1s;
+    /* or: Xms */
+    left: -5px;
+    top: -5px;
+
+  }
+}
+
+@-webkit-keyframes pulsate {
+  0% {
+    -webkit-transform: scale(0.1, 0.1);
+    opacity: 0.0;
+  }
+
+  50% {
+    opacity: 1.0;
+  }
+
+  100% {
+    -webkit-transform: scale(1.5, 1.5);
+    opacity: 0.0;
+  }
+}

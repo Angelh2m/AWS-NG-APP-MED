@@ -1,0 +1,52 @@
+.medical {
+  margin-bottom: 4rem;
+}
+
+.questionnaire {
+  margin: 3rem 0rem;
+
+  &__left {
+    margin-bottom: 1.5rem;
+    display: flex;
+  }
+
+  &__options {
+    display: flex;
+    float: left;
+    margin-right: 1.5rem;
+    align-items: center;
+  }
+
+  span {
+    font-size: 1.2rem;
+    color: $color-primary-text;
+  }
+}
+
+// .switch {
+//   input {
+//     display: none;
+//   }
+//   &>* {
+//     // transition: all 1s;
+//   }
+// }
+// // YES NO BUTTON
+// [id^="yes"]:checked~.button--option-toggle {
+//   background-color: #4cd964;
+//   color: #32a945;
+//   transition: all .5s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+// }
+// [id^="yes"]:checked~.button--option-toggle label[for^="yes"] {
+//   color: #fff;
+//   font-weight: 800;
+// }
+// [id^="no"]:checked~.button--option-toggle {
+//   background-color: #ff3b30;
+//   color: #c52a22;
+//   transition: all .5s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+// }
+// [id^="no"]:checked~.button--option-toggle label[for^="no"] {
+//   color: white;
+//   font-weight: 800;
+// }

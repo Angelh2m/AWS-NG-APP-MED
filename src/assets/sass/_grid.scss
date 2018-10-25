@@ -1,0 +1,113 @@
+.container {
+  width: 100vw;
+  margin-left: -3rem;
+
+  .row {
+    padding: 3rem;
+  }
+}
+
+@include tablet {
+  .container {
+    &--flex {
+      display: flex;
+      align-items: center;
+
+      &--white {
+        background-color: white;
+        padding: 3rem;
+      }
+    }
+
+  }
+
+  .row {
+    max-width: $grid-width;
+    margin: 0rem auto;
+    position: relative;
+
+    &:not(:last-child) {
+      margin-bottom: $gutter-vertical;
+    }
+
+    @include clearfix;
+
+    [class^="col-"] {
+      float: left;
+
+      // overflow: hidden;
+      &:not(:last-child) {
+        margin-right: $gutter-horizontal;
+      }
+    }
+
+    .col-4-of-4 {
+      width: 100%;
+    }
+
+    .col-1-of-2 {
+      width: calc((100% - #{$gutter-horizontal}) / 2);
+    }
+
+    .col-1-of-3 {
+      width: calc((100% - 2 * #{$gutter-horizontal}) / 3);
+    }
+
+    .col-2-of-3 {
+      width: calc(2 * ((100% - 2 * #{$gutter-horizontal}) / 3) + #{$gutter-horizontal});
+    }
+
+    .col-1-of-4 {
+      width: calc((100% - 3 * #{$gutter-horizontal}) / 4);
+    }
+
+    .col-2-of-4 {
+      width: calc(2 * ((100% - 3 * #{$gutter-horizontal}) / 4) + #{$gutter-horizontal});
+    }
+
+    .col-3-of-4 {
+      width: calc(3 * ((100% - 3 * #{$gutter-horizontal}) / 4) + 2 * #{$gutter-horizontal});
+    }
+  }
+
+  .background-shape:before {
+    content: '';
+    content: '';
+    position: absolute;
+    width: 130vw;
+    height: 100%;
+    /* -webkit-transform: skew(15deg, 15deg); */
+    /* transform: skew(15deg, 15deg); */
+    z-index: -9;
+    left: -15vw;
+    background-color: whitesmoke;
+    background-color: #f7f7f7;
+    transform: rotate(-8deg);
+  }
+}
+
+.background-shape:before {
+  content: '';
+  content: '';
+  position: absolute;
+  width: 200vw;
+  height: 100%;
+  /* -webkit-transform: skew(15deg, 15deg); */
+  /* transform: skew(15deg, 15deg); */
+  z-index: -9;
+  left: -30vw;
+  background-color: whitesmoke;
+  background-color: #f7f7f7;
+  transform: rotate(-8deg);
+}
+
+.row--spacer {
+  margin-top: 6rem;
+  margin-bottom: 8rem;
+}
+
+.col-3 {
+  display: inline-block;
+  float: left;
+  width: 32%;
+}
