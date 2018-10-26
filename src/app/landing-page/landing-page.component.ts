@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Faq } from '../utils/interfaces/faq';
 import { FaqData } from '../utils/data/data.faq';
-
+import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-landing-page',
@@ -22,10 +22,16 @@ export class LandingPageComponent implements OnInit {
   ]
 
 
-  constructor() { }
+  constructor(
+    private title: Title,
+    private meta: Meta,
+  ) { }
 
   ngOnInit() {
-
+    this.title.setTitle('About / Angular SSR');
+    this.meta.updateTag({
+      'description': 'Welcome to about section'
+    });
   }
 
   /* *

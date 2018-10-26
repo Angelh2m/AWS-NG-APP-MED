@@ -233,6 +233,7 @@ $title-color: #32325d;
     @include tablet {
       flex: 1;
       margin: .5rem;
+      padding-bottom: 3.5rem;
     }
   }
 }

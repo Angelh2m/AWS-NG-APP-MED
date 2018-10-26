@@ -27,6 +27,13 @@ export class SelectMembershipComponent implements OnInit {
     this.membership = this._paymentsService.membership;
   }
 
+  ngAfterContentInit() {
+    // document.write('<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"> </script>');
+    // document.write('<script type="text/javascript" src="https://js.stripe.com/v3/" ></script>');
+    // document.write('<script type="text/javascript" src="assets/js/stripe.js" ></script>')
+
+  }
+
   setPayload(option) {
     this.membership = this._paymentsService.setPayment(option);
     console.log(this.membership);

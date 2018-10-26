@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve --port=5060 --proxy-config proxy.config.json ",
     "build": "ng build",
+    "deployAWS": "aws s3 cp ./dist/surgery-care s3://surgery-care/ --recursive",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
