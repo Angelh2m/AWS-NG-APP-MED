@@ -96,12 +96,17 @@
     color: #2196F3;
     font-size: 2.5rem;
     text-align: center;
-    width: 65%;
     left: 0;
     margin: auto;
-        margin-bottom: 11rem;
+     margin-bottom: 5rem;
+  @include tablet{
+        width: 65%;
+  }
 }
 
+.spacer-title{
+  margin-top: 8rem;
+}
 
 // MISION
 .subtitle {

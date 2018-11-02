@@ -12,24 +12,27 @@
 
   &__container {
     position: absolute;
+    position: relative;
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem 3rem;
-    line-height: 2.5;
+//     display: flex;
+//     justify-content: space-between;
+    padding: 1rem $container-padding;
+    line-height: 2;
   }
 
   &__burger {
+    float: right;
     i {
-      font-size: 1.5rem;
-      margin-top: 2rem;
+    font-size: 2.5rem;
+      margin-top: 1.3rem;
       display: inline-block;
     }
   }
 
   &__logo {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: 700;
+        float: left;
 
     a {
       color: white;
@@ -47,12 +50,12 @@
 
     #{$c}__logo {
       a {
-        color: black;
+        color: #373761;
       }
     }
 
     .navigation__burger {
-      color: black;
+      color: #373761;
     }
 
     .navigation__container {
@@ -99,8 +102,13 @@
     border-radius: 50%;
     width: 34px;
     position: absolute;
-    right: 6rem;
-    top: 29%;
+    right: 7rem;
+    top: 2rem;
+    @include tablet{
+      top: 1rem;
+      right: 5rem;
+    }
+
   }
 
   // Input button

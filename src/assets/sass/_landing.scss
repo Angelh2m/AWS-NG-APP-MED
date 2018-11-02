@@ -9,7 +9,7 @@ $title-color: #32325d;
     text-shadow: -1px 1px 5px rgba(0, 0, 0, 0.6);
 
     @include tablet {
-      font-size: 5vw;
+      font-size: 5rem;
     }
   }
 
@@ -19,7 +19,7 @@ $title-color: #32325d;
     text-shadow: -1px 1px 5px rgba(0, 0, 0, 0.6);
 
     @include tablet {
-      font-size: 3vw;
+      font-size: 3.5rem;
     }
   }
 
@@ -32,6 +32,9 @@ $title-color: #32325d;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
+    @include tablet{
+      padding: 5rem 6rem;
+    }
   }
 }
 
@@ -178,11 +181,19 @@ $title-color: #32325d;
     display: inline-block;
     text-align: center;
     width: 100%;
-    margin-top: 9rem;
   }
 
   @include tablet {
     font-size: 3.3rem;
+  }
+
+  .container--flex{
+    width: 80%;
+    margin: 0 auto;
+    p{
+      margin: 0 auto;
+      width: 90%;
+    }
   }
 }
 

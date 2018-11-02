@@ -6,5 +6,9 @@
   small {
     color: #7180ef;
     margin-left: .5rem;
+    display: none;
+    @include tablet2{
+      display: inline-block;
+    }
   }
 }

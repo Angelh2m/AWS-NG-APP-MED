@@ -3,3 +3,9 @@
     @content;
   }
 }
+
+@mixin tablet2 {
+  @media (min-width: 790px) {
+    @content;
+  }
+}
