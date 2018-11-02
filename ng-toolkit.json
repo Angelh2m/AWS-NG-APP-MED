@@ -1,0 +1,16 @@
+{
+  "serverless": {
+    "--": [
+      "—-provider",
+      "aws"
+    ],
+    "project": "surgery-care",
+    "provider": "aws",
+    "skipInstall": false,
+    "directory": ".",
+    "serverless": {
+      "aws": {},
+      "gcloud": {}
+    }
+  }
+}
