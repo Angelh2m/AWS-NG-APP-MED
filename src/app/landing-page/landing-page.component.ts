@@ -77,6 +77,9 @@ export class LandingPageComponent implements OnInit {
   questions: Faq[] = FaqData;
 
   animateChart() {
+    console.warn(this.usa.nativeElement.points);
+    console.warn("LOGG!!! ", this.usa);
+
     this.usa.nativeElement.points[3].y = this.procedures[this.counter].hospital
     this.usa.nativeElement.points[4].y = this.procedures[this.counter].surgery;
     this.usa.nativeElement.points[5].y = this.procedures[this.counter].total;

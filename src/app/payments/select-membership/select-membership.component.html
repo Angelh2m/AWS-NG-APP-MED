@@ -11,14 +11,12 @@
         <div
           [class.active]="membership?.number == 0"
           class="membership row "
+          (click)="setPayload(0)"
         >
           <div class="membership__flex">
             <div>
               <h4 class="membership__package-name">6 months support</h4>
-              <button
-                class="membership__buy-button"
-                (click)="setPayload(0)"
-              >Select</button>
+              <button class="membership__buy-button">Select</button>
             </div>
             <strong class="membership__price">$25
               <br>
@@ -36,14 +34,12 @@
         <div
           [class.active]="membership?.number == 1"
           class="membership membership--blue row "
+          (click)="setPayload(1)"
         >
           <div class="membership__flex">
             <div>
               <h4 class="membership__package-name">12 months support</h4>
-              <button
-                class="membership__buy-button"
-                (click)="setPayload(1)"
-              >Select</button>
+              <button class="membership__buy-button">Select</button>
             </div>
             <strong class="membership__price">$10
               <br>

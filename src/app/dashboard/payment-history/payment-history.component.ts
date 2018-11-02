@@ -25,10 +25,6 @@ export class PaymentHistoryComponent implements OnInit {
 
     let purchaseDate = new Date(Date.parse('2018-09-05T20:31:16.378Z'))
     var expireDate = purchaseDate.setMonth(purchaseDate.getMonth() + 2);
-    // console.log(purchaseDate);
-    // console.log(new Date(expireDate));
-
-
 
     if (!this._userService.usersPayload.email) {
       this._userService.fetchUserProfile()
@@ -48,6 +44,11 @@ export class PaymentHistoryComponent implements OnInit {
         )
     } else {
       this.payments = this._userService.usersPayload.payments;
+      this.payments.map(payment => {
+        let date = new Date(payment.date);
+        var expireDate = date.setMonth(date.getMonth() + 2)
+        payment.expires = new Date(expireDate)
+      });
       console.log(this.payments);
     }
 

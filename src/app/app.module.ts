@@ -23,6 +23,7 @@ import { PaymentHistoryComponent } from './dashboard/payment-history/payment-his
 import { QuestionsComponent } from './dashboard/questions/questions.component';
 import { LoginComponent } from './sharedModules/login/login.component';
 import { RecomendationsComponent } from './dashboard/recomendations/recomendations.component';
+import { FooterComponent } from './sharedModules/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { RecomendationsComponent } from './dashboard/recomendations/recomendatio
     PaymentHistoryComponent,
     QuestionsComponent,
     LoginComponent,
-    RecomendationsComponent
+    RecomendationsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

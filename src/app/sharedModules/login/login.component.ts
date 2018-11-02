@@ -31,7 +31,8 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
+    this.onSelectOption = true;
+    this.onChangeState('Sign-in')
   }
 
   onChangeState(state) {
