@@ -13,7 +13,10 @@ export class LoginComponent implements OnInit {
   formTitle: string;
   form: FormGroup;
   onSelectOption: boolean = false;
-  fields = [];
+  fields = [
+    { type: 'text', placeholder: 'Email', name: 'email' },
+    { type: 'text', placeholder: 'Password', name: 'password' },
+  ];
   payload: any = {
     name: '',
     email: '',
@@ -27,7 +30,9 @@ export class LoginComponent implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+
+  }
 
   onChangeState(state) {
     this.formTitle = state.replace();
@@ -55,6 +60,10 @@ export class LoginComponent implements OnInit {
         break;
 
       default:
+        this.fields = [
+          { type: 'text', placeholder: 'Email', name: 'email' },
+          { type: 'text', placeholder: 'Password', name: 'password' },
+        ];
         break;
     }
 

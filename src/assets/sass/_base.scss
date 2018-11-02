@@ -47,6 +47,7 @@ img {
 
 a {
   text-decoration: none;
+  cursor: pointer;
 }
 
 li {
@@ -139,4 +140,48 @@ select {
 
 p.small {
   font-size: 1.5rem;
+}
+
+
+// DECORATIONS
+
+.bullet-number{
+    background-color: #5858b3;
+    padding: .5rem;
+    border-radius: 50%;
+    padding: 1rem .9rem;
+    line-height: .6;
+    font-weight: 600;
+    margin-right: 1rem;
+}
+
+.card-ul{
+        width: auto;
+    display: inline-block;
+    background-color: #32325d;
+    padding: 3rem;
+    display: flex;
+    justify-content: space-between;
+    color: #979ae8;;
+}
+
+.svg-promo{
+      position: absolute;
+    top: 59%;
+    width: 34rem;
+    right: 31%;
+}
+
+.service-title{
+      width: 100%;
+    display: inline-block;
+    background-color: #32325d;
+    /* padding: 3rem; */
+    /* display: flex; */
+    justify-content: space-between;
+    color: white;
+    text-align: left;
+    font-weight: 500;
+    padding: 2rem 3rem 2rem 3rem;
+    border-bottom: solid 2px;
 }

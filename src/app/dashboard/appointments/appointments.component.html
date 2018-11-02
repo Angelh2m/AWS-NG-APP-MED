@@ -1,7 +1,14 @@
-<h2 class="subtitle--left">Appintment</h2>
+<h2 class="subtitle--left">Next coming appointments</h2>
 <hr>
 
-<div class="row card">
+<div
+  class="row card"
+  *ngFor="let item of appointmets"
+>
+  {{item.surgery}}
+  <li>
+    ok
+  </li>
   <div class="col-2-of-4">
     <h3>SURGERY</h3>
     <p>Name of surgery</p>

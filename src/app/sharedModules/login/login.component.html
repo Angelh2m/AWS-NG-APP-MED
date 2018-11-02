@@ -1,13 +1,12 @@
 <div class="login">
   <div *ngIf="!onSelectOption">
     <h3 class="subtitle--medium-blue">LOGIN</h3>
-    <button class="button--login"> SIGN IN WITH FACEBOOK</button>
-    <button class="button--login"> SIGN IN WITH GMAIL</button>
+    <!-- <button class="button--login"> SIGN IN WITH FACEBOOK</button>
+    <button class="button--login"> SIGN IN WITH GMAIL</button> -->
   </div>
   <h3 class="subtitle--medium-blue">{{formTitle}}</h3>
   <form
     class="md-form"
-    *ngIf="formTitle"
     (ngSubmit)="onFormSumbit()"
   >
     <input

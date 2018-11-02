@@ -67,12 +67,12 @@ export class QuestionsComponent implements OnInit {
       comment: this.commentResponse
     }
 
-    // this._userService.commentQuestion(commentQ)
-    //   .subscribe(
-    //     (succ) => (console.log(succ),
-    //       (err) => console.log(err)
-    //     )
-    //   )
+    this._userService.commentQuestion(commentQ)
+      .subscribe(
+        (succ) => (console.log(succ),
+          (err) => console.log(err)
+        )
+      )
     commentQ.user = 'You have responded:';
     commentQ.date = new Date();
 

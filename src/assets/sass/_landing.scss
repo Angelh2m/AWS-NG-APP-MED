@@ -163,9 +163,23 @@ $title-color: #32325d;
 }
 
 .our-mission {
-  font-size: 2rem;
-  color: #76879b;
-  text-align: center;
+
+  padding-bottom: 6rem;
+
+
+  p{
+    font-size: 2rem;
+    color: #76879b;
+    text-align: center;
+  }
+
+
+  h6{
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    margin-top: 9rem;
+  }
 
   @include tablet {
     font-size: 3.3rem;
@@ -230,6 +244,10 @@ $title-color: #32325d;
       margin-top: 3.5rem;
     }
 
+    p{
+      font-size:1rem !important;
+    }
+
     @include tablet {
       flex: 1;
       margin: .5rem;
@@ -242,7 +260,7 @@ $title-color: #32325d;
   @include tablet {
     display: flex;
     align-items: center;
-    margin-top: 6rem;
+    margin-top: 5rem !important;
   }
 
   &__svg {
@@ -278,6 +296,7 @@ $title-color: #32325d;
 
 .spacer {
   margin-bottom: 4.5rem !important;
+      padding: 2rem;
 }
 
 .text--blue {
@@ -290,7 +309,7 @@ $title-color: #32325d;
   color: #43d394;
   font-size: 3rem;
   line-height: 0;
-  position: absolute;
+//   position: absolute;
   right: 3rem;
   top: 2rem;
 }

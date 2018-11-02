@@ -39,7 +39,7 @@
 
 .text--right {
   text-align: right;
-  width: 100%;
+//   width: 100%;
 }
 
 .text--center {
@@ -65,6 +65,40 @@
   font-size: 1rem;
   display: block;
   margin-bottom: .5rem;
+}
+
+.subtitle--spacer{
+      margin-top: 7rem;
+    display: block;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+        color: #32325d;
+
+    font-size: 2.5rem;
+  @include tablet {
+    font-size: 3rem;
+  }
+
+}
+
+.subtitle--h3{
+     text-align: center;
+    width: 100%;
+        color: #32325d;
+    font-size: 2.5rem;
+    text-align: center;
+
+}
+
+.subtitle--h4{
+     font-weight: 100;
+    color: #2196F3;
+    font-size: 2.5rem;
+    text-align: center;
+    width: 65%;
+    left: 0;
+    margin: auto;
 }
 
 
