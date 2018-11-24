@@ -14,8 +14,9 @@ export class ConfirmationGuard implements CanActivate {
   ) { }
 
   canActivate() {
+    console.warn(this._payment.membership);
+
     if (this._payment.membership.paid == false) {
-      console.log('BLOCK');
 
       this.router.navigate(['/payments/card']);
       return false

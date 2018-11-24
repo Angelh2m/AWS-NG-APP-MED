@@ -1,6 +1,6 @@
 .button {
   cursor: pointer;
-  
+
   &--primary {
     background: #39b54a;
     padding: 1.5rem 5rem;
@@ -67,7 +67,7 @@
 
   &--radio-selected {
     background-color: #34d08c;
-    padding: 0.1rem 1.1rem;
+    padding: 0.1rem 1.15rem;
     border-radius: 50%;
     position: relative;
 
@@ -200,6 +200,15 @@
       // background-color: whitesmoke;
     }
   }
+
+  &--switch {
+    background: transparent;
+    border: solid 2px gainsboro;
+    width: 5rem;
+    float: left;
+    margin-right: 2rem;
+  }
+
 }
 
 

@@ -19,6 +19,7 @@ export class QuestionsComponent implements OnInit {
   dropzoneActive;
   activeElement = '';
   commentResponse = '';
+  sentQuestions = "";
 
 
   constructor(
@@ -92,9 +93,9 @@ export class QuestionsComponent implements OnInit {
 
     this._userService.askQuestion(this.question.value)
       .subscribe(
-        (succ) => (console.log(succ),
-          (err) => console.log(err)
-        )
+        (succ) => { this.sentQuestions = succ; console.log(succ) },
+        (err) => console.log(err)
+
       )
   }
 

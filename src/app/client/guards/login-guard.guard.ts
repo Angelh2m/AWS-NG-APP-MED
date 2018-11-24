@@ -15,20 +15,13 @@ export class LoginGuardGuard implements CanActivate {
     public _userService: UserService) { }
 
   canActivate() {
-    console.log('RUN GUARD');
-    console.warn(this._userService.isLogged());
 
     if (this._userService.isLogged()) {
-      console.log('ITS LOGGED IN');
       this._login.loginModal.next(this.value);
       return true;
     }
-
-
-    // this.value = !this.value;
-    // console.warn('STREAM', this.value);
-
-    // this.router.navigate(['/login']);
+    this._login.loginModal.next(false);
+    this.router.navigate(['/']);
     return false
 
   }

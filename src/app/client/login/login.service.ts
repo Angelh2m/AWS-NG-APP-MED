@@ -44,10 +44,18 @@ export class LoginService {
   }
 
   resetPassword(user) {
-
     let url = `${URL_ENDPOINTS.AWS}/api/forgot-password`;
     const body = new HttpParams()
       .set('email', user.email)
+    return this._http.post(url, body)
+  }
+
+  setPassword(user) {
+    let url = `${URL_ENDPOINTS.AWS}/api/new-password/`;
+    const body = new HttpParams()
+      .set('password', user.password)
+      .set('email', user.email)
+      .set('token', user.token)
 
     return this._http.post(url, body)
   }

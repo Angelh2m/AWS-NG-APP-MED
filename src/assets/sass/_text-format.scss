@@ -39,7 +39,7 @@
 
 .text--right {
   text-align: right;
-//   width: 100%;
+  //   width: 100%;
 }
 
 .text--center {
@@ -67,44 +67,62 @@
   margin-bottom: .5rem;
 }
 
-.subtitle--spacer{
-      margin-top: 7rem;
-    display: block;
-    display: inline-block;
-    text-align: center;
-    width: 100%;
-        color: #32325d;
+.subtitle--spacer {
+  margin-top: 7rem;
+  display: block;
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  color: #32325d;
 
-    font-size: 2.5rem;
+  font-size: 2.5rem;
+
   @include tablet {
     font-size: 3rem;
   }
 
 }
 
-.subtitle--h3{
-     text-align: center;
-    width: 100%;
-        color: #32325d;
-    font-size: 2.5rem;
-    text-align: center;
+.subtitle--h3 {
+  text-align: center;
+  width: 100%;
+  color: #32325d;
+  font-size: 2.5rem;
+  text-align: center;
 
 }
 
-.subtitle--h4{
-     font-weight: 100;
-    color: #2196F3;
-    font-size: 2.5rem;
-    text-align: center;
-    left: 0;
-    margin: auto;
-     margin-bottom: 5rem;
-  @include tablet{
-        width: 65%;
+.subtitle--h4 {
+  font-weight: 100;
+  color: #2196F3;
+  font-size: 2.5rem;
+  text-align: center;
+  left: 0;
+  margin: auto;
+  margin-bottom: 5rem;
+
+  @include tablet {
+    width: 65%;
   }
 }
 
-.spacer-title{
+.subtitle--switch {
+  margin-bottom: 1rem;
+  margin-right: 2.5rem;
+}
+
+.switch--link {
+  display: inline-block;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-right: 1.5rem;
+  color: #32325d;
+  border: solid 3px #32325d;
+  padding: .5rem;
+  margin-bottom: .5rem;
+}
+
+.spacer-title {
   margin-top: 8rem;
 }
 

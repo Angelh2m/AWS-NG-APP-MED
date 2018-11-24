@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { LoginService } from 'src/app/client/login/login.service';
 import { UserService } from 'src/app/client/user/user.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import * as jwt_decode from "jwt-decode";
 
 @Component({
   selector: 'app-login',
@@ -23,16 +24,59 @@ export class LoginComponent implements OnInit {
     password: '',
     password2: '',
   }
+  errors: string = '';
+  success: string = '';
+  // ResetPassword
+  token: '';
+
 
   constructor(
     public _loginService: LoginService,
     private _user: UserService,
-    private router: Router
+    private router: Router,
+    private _ar: ActivatedRoute
   ) { }
 
   ngOnInit() {
     this.onSelectOption = true;
-    this.onChangeState('Sign-in')
+    this.onChangeState('Sign-in');
+
+    const x = this._ar.queryParams.subscribe(params => {
+      this.token = params.token;
+      if (params.token) {
+        this.fields = [
+          { type: 'text', placeholder: 'Password', name: 'password' },
+          { type: 'text', placeholder: 'Password', name: 'password2' },
+        ];
+      }
+
+    })
+  }
+
+  setNewPassword() {
+
+    let token = this.token;
+    if (this.payload.password !== this.payload.password2) {
+      return this.errors = "Passwords don't match"
+    }
+    this.errors = "";
+
+    const payload = {
+      password: this.payload.password,
+      email: jwt_decode(token).user,
+      token,
+    }
+
+    this._loginService.setPassword(payload)
+      .subscribe((resp: any) => {
+        console.log(resp.success);
+        if (resp.success) {
+          this.success = 'You password has been restored'
+        }
+
+      },
+        (err) => { err })
+
   }
 
   onChangeState(state) {
@@ -170,11 +214,15 @@ export class LoginComponent implements OnInit {
   onResetPassword(user) {
     this._loginService.resetPassword(user)
       .subscribe((res: any) => {
-        console.warn(res);
+        if (res.ok !== true) {
+          this.errors = "Not a user yet";
+        }
+        console.warn('RESPONSE ', res);
+        this._loginService.loginModal.next('false')
       }),
-      (err => {
-        console.log(err)
-      })
+      (err: any) => {
+        console.log('Sorry you are not a user yet', err)
+      }
   }
 
   onSelectLogin() {

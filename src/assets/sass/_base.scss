@@ -10,6 +10,10 @@ html {
   // This defines what 1rem is
   font-size: 62.5%;
   overflow-x: hidden;
+
+  @include desktop {
+    font-size: 68%;
+  }
 }
 
 body {
@@ -53,6 +57,12 @@ a {
   cursor: pointer;
 }
 
+ul {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 li {
   list-style: none;
 }
@@ -63,10 +73,10 @@ button {
 }
 
 section {
-margin-bottom: 6rem;
-    display: inline-block;
-    position: relative;
-    width: 100%;
+  margin-bottom: 6rem;
+  display: inline-block;
+  position: relative;
+  width: 100%;
 }
 
 input:-webkit-autofill {
@@ -119,7 +129,8 @@ input[type="checkbox"] {
   -moz-appearance: none;
   -webkit-appearance: none;
   float: left;
-//   margin-right: .5rem;
+  margin-right: .5rem;
+  margin-bottom: .5rem;
 
   &:checked {
     background-color: white;
@@ -145,20 +156,33 @@ select {
 
 p.small {
   font-size: 1.5rem;
+  line-height: 2;
 }
 
 
 // DECORATIONS
 
 .bullet-number {
+  position: absolute;
+  margin-top: -1.5rem;
+}
+
+.marg-5 {
+  margin-left: 5rem;
+}
+
+.bullet-number:before {
+  content: '';
+  position: absolute;
   background-color: #5858b3;
   padding: .5rem;
   border-radius: 50%;
-  padding: 1rem .9rem;
+  padding: 1.5rem;
   line-height: .6;
   font-weight: 600;
   margin-right: 1rem;
   color: white;
+  box-shadow: 0px 0px 3px #8c8c8c;
 }
 
 .card-ul {
@@ -191,4 +215,31 @@ p.small {
   font-weight: 500;
   padding: 2rem 3rem 2rem 3rem;
   border-bottom: solid 2px;
+}
+
+
+.loging-message-errors {
+  font-weight: 600;
+  text-align: center;
+  color: red;
+  margin: auto;
+  display: block;
+}
+
+.loging-message-errors {
+  font-weight: 600;
+  text-align: center;
+  color: rgb(14, 187, 66);
+  margin: auto;
+  display: block;
+}
+
+.reset-background {
+
+  position: absolute;
+  z-index: -99999999999999;
+  width: 104vw;
+  background-color: #3b3a6d;
+  height: 100vw;
+  left: 0%;
 }

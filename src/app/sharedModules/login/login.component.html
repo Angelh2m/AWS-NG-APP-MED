@@ -1,10 +1,17 @@
-<div class="login">
+<div
+  class="login"
+  *ngIf="!token"
+>
   <div *ngIf="!onSelectOption">
     <h3 class="subtitle--medium-blue">LOGIN</h3>
     <!-- <button class="button--login"> SIGN IN WITH FACEBOOK</button>
     <button class="button--login"> SIGN IN WITH GMAIL</button> -->
   </div>
   <h3 class="subtitle--medium-blue">{{formTitle}}</h3>
+  <small
+    class="loging-message-errors"
+    *ngIf="errors"
+  >{{errors}}</small>
   <form
     class="md-form"
     (ngSubmit)="onFormSumbit()"
@@ -59,5 +66,44 @@
       >Create account</label>
     </li>
   </ul>
+
+</div>
+
+<div
+  *ngIf="token"
+  class="reset-background"
+></div>
+
+<div
+  class="login"
+  *ngIf="token"
+>
+
+
+  <h3 class="subtitle--medium-blue">Recover Password</h3>
+  <small
+    class="loging-message-errors"
+    *ngIf="errors"
+  >{{errors}}</small>
+  <small
+    class="loging-message-errors"
+    *ngIf="success"
+  >{{success}}</small>
+  <form
+    class="md-form"
+    (ngSubmit)="setNewPassword()"
+  >
+    <input
+      *ngFor="let field of fields"
+      (blur)="onType($event)"
+      type="{{field.type}}"
+      name="{{field.name}}"
+      placeholder="{{field.placeholder}}"
+    >
+    <button
+      type="submit"
+      class="button--form-submit"
+    >SUBMIT</button>
+  </form>
 
 </div>

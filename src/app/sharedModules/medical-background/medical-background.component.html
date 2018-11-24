@@ -1,3 +1,292 @@
-<p>
-  medical-background works!
-</p>
+<div
+  *ngIf="messages.length >= 3"
+  class="form-success--text"
+>
+  {{messages}}
+</div>
+
+<div
+  class="medical"
+  *ngIf="messages.length == 0"
+>
+  <h3 class="subtitle">Welcome to SurgeryCare.</h3>
+  <i class="subtitle__small">Let's beging by filling out your medical history</i>
+  <div>
+    <h6 class="subtitle--secondary">Personal Information</h6>
+  </div>
+  <hr>
+  <form
+    ngNativeValidate
+    class="form-primary"
+    (ngSubmit)="onSubmit()"
+    [formGroup]='form'
+  >
+    <section>
+      <div class="form-primary__flex ">
+        <div>
+          <span class="text--small ">Name:</span>
+          <input
+            class="form-primary__input form-primary__input--medical"
+            formControlName="firstName"
+            (change)="onSelection($event, 'info', null)"
+            (keypress)="validate($event, 'text')"
+            [ngClass]="{required: errors.firstName, valid: !errors.firstName && !form.controls['firstName'].pristine}"
+            name="firstName"
+            type="text"
+          >
+        </div>
+        <div>
+          <span class=" text--small">Last Name:</span>
+          <input
+            (blur)="onSelection($event, 'info', null)"
+            class="form-primary__input form-primary__input--medical"
+            (keypress)="validate($event, 'text')"
+            formControlName="lastName"
+            [ngClass]="{required: errors.lastName, valid: !errors.lastName && !form.controls['lastName'].pristine}"
+            name="lastName"
+            type="text"
+          >
+        </div>
+      </div>
+      <div class="form-primary__flex">
+        <div class="col">
+          <span class="text--small ">Gender:</span>
+          <select
+            (blur)="onSelection($event, 'info', null)"
+            name="Gender"
+            formControlName="Gender"
+            [ngClass]="{required: errors.Gender, valid: !errors.Gender && !form.controls['Gender'].pristine && !form.controls['Gender'].invalid }"
+          >
+            <option value=""></option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>>
+          </select>
+        </div>
+
+        <div class="col">
+          <span class="text--small ">Age:</span>
+          <input
+            (blur)="onSelection($event, 'info', null)"
+            class="form-primary__input form-primary__input--medical"
+            (keypress)="validate($event, 'number')"
+            type="number"
+            name="Age"
+            formControlName="Age"
+            [ngClass]="{required: errors.Age, valid: !errors.Age && !form.controls['Age'].pristine && !form.controls['Age'].invalid }"
+          >
+        </div>
+        <div class="col">
+          <span class="text--small ">Height:</span>
+          <input
+            (blur)="onSelection($event, 'info', null)"
+            class="form-primary__input form-primary__input--medical"
+            type="text"
+            name="Height"
+            formControlName="Height"
+            [ngClass]="{required: errors.Height, valid: !errors.Height && !form.controls['Height'].pristine && !form.controls['Height'].invalid }"
+          >
+        </div>
+        <div class="col">
+          <span class="text--small ">Weight:</span>
+          <input
+            (blur)="onSelection($event, 'info', null)"
+            class="form-primary__input form-primary__input--medical"
+            type="text"
+            name="Weight"
+            formControlName="Weight"
+            [ngClass]="{required: errors.Weight, valid: !errors.Weight && !form.controls['Weight'].pristine && !form.controls['Weight'].invalid }"
+          >
+        </div>
+      </div>
+      <div class="form-primary__flex">
+        <div>
+          <span class=" text--small">Phone number:</span>
+          <input
+            (blur)="onSelection($event, 'info', null)"
+            (keypress)="formatNumber($event)"
+            class="form-primary__input form-primary__input--medical"
+            type="text"
+            name="Phone"
+            formControlName="Phone"
+            [ngClass]="{required: errors.Phone, valid: !errors.Phone && !form.controls['Phone'].pristine && !form.controls['Phone'].invalid }"
+          >
+        </div>
+        <div>
+          <span class="text--small ">Address:</span>
+          <input
+            (blur)="onSelection($event, 'info', null)"
+            class="form-primary__input form-primary__input--medical"
+            type="text"
+            name="Address"
+            formControlName="Address"
+            [ngClass]="{required: errors.Address, valid: !errors.Address && !form.controls['Address'].pristine && !form.controls['Address'].invalid }"
+          >
+        </div>
+      </div>
+      <div class="form-primary__flex">
+        <div class="col">
+          <span class="text--small ">Country:</span>
+          <select
+            (blur)="onSelection($event, 'info', null)"
+            name="Country"
+            formControlName="Country"
+            [ngClass]="{required: errors.Country, valid: !errors.Country && !form.controls['Country'].pristine && !form.controls['Country'].invalid }"
+          >
+            <option value="USA">USA</option>
+            <option value="CANADA">CANADA</option>
+            <option value="MEXICO">MEXICO</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="col">
+          <span class="text--small ">City:</span>
+          <input
+            (blur)="onSelection($event, 'info', null)"
+            class="form-primary__input form-primary__input--medical"
+            type="text"
+            name="City"
+            formControlName="City"
+            [ngClass]="{required: errors.City, valid: !errors.City && !form.controls['City'].pristine && !form.controls['City'].invalid }"
+          >
+        </div>
+        <div class="col">
+          <span class="text--small ">State:</span>
+          <input
+            (blur)="onSelection($event, 'info', null)"
+            class="form-primary__input form-primary__input--medical"
+            (keypress)="validate($event, 'text')"
+            type="text"
+            name="State"
+            formControlName="State"
+            [ngClass]="{required: errors.State, valid: !errors.State && !form.controls['State'].pristine && !form.controls['State'].invalid }"
+          >
+        </div>
+        <div class="col">
+          <span class="text--small ">Zip:</span>
+          <input
+            (blur)="onSelection($event, 'info', null)"
+            class="form-primary__input form-primary__input--medical"
+            type="text"
+            name="Zip"
+            formControlName="Zip"
+            [ngClass]="{required: errors.Zip, valid: !errors.Zip && !form.controls['Zip'].pristine && !form.controls['Zip'].invalid }"
+          >
+        </div>
+
+      </div>
+    </section>
+
+
+
+    <!-- SWITCH -->
+
+    <div>
+      <h6 class="subtitle--secondary">Medical Background</h6>
+    </div>
+    <hr>
+    <section>
+      <div class="questionnaire">
+        <div *ngFor="let q of medicalQuestions.general; let i = index">
+
+          <div class="questionnaire__left">
+            <div class="questionnaire__options">
+              <input
+                (click)="onSelection($event, 'general', q.id)"
+                id="yes-{{q.id}}"
+                class="form-primary__input"
+                type="radio"
+                name="{{q.id}}"
+              >
+              <span>Yes</span>
+            </div>
+            <div class="questionnaire__options">
+              <input
+                (click)="onSelection($event, 'general', q.id)"
+                id="no-{{q.id}}"
+                class="form-primary__input"
+                type="radio"
+                name="{{q.id}}"
+              >
+              <span>No</span>
+            </div>
+            <span class="text--small ">{{q.question}}:</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- <div class="button--option-toggle">
+        <label (click)="onSelection($event)" for="yes-{{q.id}}" id="general-{{q.id}}" class="yes">Yes </label>
+        <label (click)="onSelection($event)" for="no-{{q.id}}" id="general-{{q.id}}" class="no"> No</label>
+      </div> -->
+
+
+    <div>
+      <h6 class="subtitle--secondary">Are you allergic to any of the following?</h6>
+    </div>
+    <hr>
+    <section>
+      <div style="display: inline-block;">
+        <div
+          *ngFor="let q of medicalQuestions.allergies"
+          style=" display: inline-block; float: left; width: 32%;"
+        >
+
+          <input
+            (click)="onSelection($event, 'allergies', q.id)"
+            [ngClass]="{cssClass: expression}"
+            class="form-primary__input radio"
+            type="checkbox"
+            name="{{q.id}}"
+          >
+          <!-- <input class="form-primary__input radio" type="radio" name="{{q.id}}"> -->
+          <span class="text--small ">{{q.allergy}}:</span>
+        </div>
+      </div>
+    </section>
+
+
+    <div>
+      <h6 class="subtitle--secondary">Do you have, or have had, any of the following?</h6>
+    </div>
+    <hr>
+    <section>
+      <div class="questionnaire">
+        <div
+          *ngFor="let q of medicalQuestions.health"
+          style="width: 45%; margin-right: 5%;  display: inline-block; float: left;"
+        >
+
+          <div class="questionnaire__left">
+            <div class="questionnaire__options">
+              <input
+                (click)="onSelection($event, 'health', q.id)"
+                id="yes-{{q.id}}"
+                class="form-primary__input"
+                type="radio"
+                name="{{q.id}}"
+              >
+              <span>Yes</span>
+            </div>
+            <div class="questionnaire__options">
+              <input
+                (click)="onSelection($event, 'health', q.id)"
+                id="no-{{q.id}}"
+                class="form-primary__input"
+                type="radio"
+                name="{{q.id}}"
+              >
+              <span>No</span>
+            </div>
+            <span class="text--small ">{{q.medicHistory}}:</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <button class="button--save">Save</button>
+  </form>
+
+</div>

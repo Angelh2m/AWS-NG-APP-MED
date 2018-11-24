@@ -11,6 +11,9 @@ import { QuestionsComponent } from './dashboard/questions/questions.component';
 import { PaymentHistoryComponent } from './dashboard/payment-history/payment-history.component';
 import { AppointmentsComponent } from './dashboard/appointments/appointments.component';
 import { RecomendationsComponent } from './dashboard/recomendations/recomendations.component';
+import { ConfirmationGuard } from './client/guards/confirmation.guard';
+import { LoginComponent } from './sharedModules/login/login.component';
+import { LoginGuardGuard } from './client/guards/login-guard.guard';
 
 
 
@@ -20,7 +23,7 @@ const routes: Routes = [
     path: 'dashboard',
     component: DashboardComponent,
     data: { title: 'PatientsDashboardComponent' },
-    // canActivate: [LoginGuardGuard],
+    canActivate: [LoginGuardGuard],
     children: [
       {
         path: '',
@@ -49,7 +52,11 @@ const routes: Routes = [
       },
     ]
   },
-
+  {
+    path: 'reset',
+    component: LoginComponent,
+    data: { title: 'reset' },
+  },
   {
     path: 'payments',
     component: PaymentsComponent,
@@ -69,7 +76,7 @@ const routes: Routes = [
       {
         path: 'payment-confirmation',
         component: ConfirmationComponent,
-        // canActivate: [LoginGuardGuard],
+        canActivate: [ConfirmationGuard],
       },
     ],
   },

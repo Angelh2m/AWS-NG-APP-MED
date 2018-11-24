@@ -10,11 +10,7 @@ import { Title, Meta } from '@angular/platform-browser';
 export class LandingPageComponent implements OnInit {
 
   x: number = 0;
-  surgeries = [
-    'Low back pain surgery', 'Gastric bypass',
-    'Knee replacements ', 'hip replacement ', ' joint replacement',
-    'femoral shaft fracture',
-  ]
+  surgeries = ["Addiction Medicine", "Adolescent Medicine", "Adult Psychiatry", "Aerospace Medicine", "Allergy / Immunology", "Allergy Medicine", "Anesthesiology", "Bariatric Surgery", "Behavioral Medicine", "Breast Surgery", "Cardiac Electrophysiology", "Cardiac Surgery", "Cardiology", "Cardiothoracic Surgery", "Child Psychiatry", "Colorectal Surgery", "Cosmetic Surgery", "Critical Care Medicine", "Critical Care Pediatrics", "Dermatology", "Dermatopathology", "Diabetology", "Diagnostic Radiology", "Emergency Medicine", "Endocrinology", "ENT / Otolaryngology", "Epileptology", "Family Medicine", "Foot & Ankle Orthopedics", "Functional Medicine", "Gastroenterology", "General Practice", "General Surgery", "Geriatrics", "Gynecologic Oncology", "Gynecology", "Hand Surgery", "Head & Neck Surgery", "Hematology", "Hematology / Oncology", "Hepatology", "Holistic Medicine", "Immunology", "Infectious Disease Medicine", "Internal Medicine", "Internal Medicine / Pediatrics", "Interventional Cardiology", "Interventional Pain Management", "Medical Genetics", "Neonatology", "Nephrology", "Neurology", "Neuroradiology", "Neurosurgery", "Nuclear Cardiology", "Nuclear Medicine", "OBGYN / Obstetrics & Gynecology", "Obstetrics", "Occupational Medicine", "Oncology", "Ophthalmology", "Orthopedic Spine Surgery", "Orthopedic Surgery", "Osteopathic Medicine", "Pain Management", "Palliative Care", "Pathology", "Pediatric Cardiology", "Pediatric Endocrinology", "Pediatric Gastroenterology", "Pediatric Hematology / Oncology", "Pediatric Neurology", "Pediatric Pulmonology", "Pediatric Radiology", "Pediatric Surgery", "Pediatrics", "Physical Medicine & Rehabilitation", "Plastic Surgery", "Preventive Medicine", "Psychiatry", "Pulmonary Critical Care", "Pulmonology", "Radiation Oncology", "Radiology", "Reconstructive Orthopedic Surgery", "Reproductive Endocrinology", "Rheumatology", "Sleep Medicine", "Sports Medicine", "Surgical Oncology", "Thoracic Surgery", "Transplant Surgery", "Trauma Surgery", "Urgent Care", "Urogynecology", "Urology", "Vascular & Interventional Radiology", "Vascular Surgery"];
   surgeries2 = [
     'Arthroplasty', 'Shoulder arthroscopy ',
     'Lumbar spinal fusion', 'Low back intervertebral disc surgery',
@@ -24,45 +20,17 @@ export class LandingPageComponent implements OnInit {
   @ViewChild("usa", { read: ElementRef }) usa: ElementRef;
   @ViewChild("mexico", { read: ElementRef }) mexico: ElementRef;
 
-  USA = {
-    hospital: 73,
-    surgery: 50,
-    total: 40
-  }
-  MEXICO = {
-    hospital: 72,
-    surgery: 70,
-    total: 80
-  }
+  selection = 0;
 
-  LIMIT = {
-    hospital: 80.8010025024414,
-    surgery: 80.0,
-    total: 80
-  }
-  procedures = [
-    {
-      type: 'Knee prostetic',
-      hospital: 30,
-      surgery: 20,
-      total: 60
-    },
-    {
-      type: 'Column prostetic',
-      hospital: 20,
-      surgery: 30,
-      total: 10
-    }
-  ]
-  counter = 0;
-
-  // public usa = '110,84 23,84 23,84 40,52 76.801,43 110,13 ';
   constructor(
     private title: Title,
     private meta: Meta,
   ) { }
   ngOnInit() {
-
+    this.title.setTitle('Surgery Care');
+    this.meta.updateTag({
+      'description': 'Best surgeries'
+    });
   }
 
   /* *
@@ -76,59 +44,11 @@ export class LandingPageComponent implements OnInit {
 
   questions: Faq[] = FaqData;
 
-  animateChart() {
-    console.warn(this.usa.nativeElement.points);
-    console.warn("LOGG!!! ", this.usa);
 
-    this.usa.nativeElement.points[3].y = this.procedures[this.counter].hospital
-    this.usa.nativeElement.points[4].y = this.procedures[this.counter].surgery;
-    this.usa.nativeElement.points[5].y = this.procedures[this.counter].total;
 
-    this.MEXICO.hospital = this.usa.nativeElement.points[3].y;
-    this.MEXICO.surgery = this.usa.nativeElement.points[4].y;
-    this.MEXICO.total = this.usa.nativeElement.points[5].y;
-    this.counter += 1;
-    // START FROM USA
-    this.mexico.nativeElement.points[3].y = this.usa.nativeElement.points[3].y;
-    this.mexico.nativeElement.points[4].y = this.usa.nativeElement.points[4].y;
-    this.mexico.nativeElement.points[5].y = this.usa.nativeElement.points[5].y;
-
-    const animate1 = setInterval(() => {
-      this.mexico.nativeElement.points[3].y = this.MEXICO.hospital;
-      this.mexico.nativeElement.points[4].y = this.MEXICO.surgery;
-      this.mexico.nativeElement.points[5].y = this.MEXICO.total;
-      this.MEXICO.hospital += .05;
-      this.MEXICO.surgery += .05;
-      this.MEXICO.total += .05;
-
-      if (this.MEXICO.surgery >= this.LIMIT.surgery) {
-        this.MEXICO.surgery = this.LIMIT.surgery;
-      }
-      if (this.MEXICO.hospital >= this.LIMIT.hospital) {
-        this.MEXICO.hospital = this.LIMIT.hospital;
-      }
-      if (this.MEXICO.total >= this.LIMIT.total) {
-        this.MEXICO.total = this.LIMIT.total;
-      }
-      if (this.MEXICO.hospital >= this.LIMIT.hospital
-        && this.MEXICO.surgery >= this.LIMIT.surgery
-        && this.MEXICO.total >= this.LIMIT.total
-      ) {
-        clearInterval(animate1);
-      }
-    }, 0)
-
-    this.title.setTitle('About / Angular SSR');
-    this.meta.updateTag({
-      'description': 'Welcome to about section'
-    });
-    // setTimeout(() => {
-    //   this.USA.hospital = 30
-    //   this.USA.surgery = 40
-    //   this.USA.total = 40
-    // }, 3000);
+  switchIt(num) {
+    this.selection = num
   }
-
 
 
 }

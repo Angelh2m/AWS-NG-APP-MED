@@ -52,7 +52,7 @@
                   ],
                   "Resource": [
                     {
-                      "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/surgery-care-production-api:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/surgery-care-production-api:*"
                     }
                   ]
                 },
@@ -63,7 +63,7 @@
                   ],
                   "Resource": [
                     {
-                      "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/surgery-care-production-api:*:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/surgery-care-production-api:*:*"
                     }
                   ]
                 }
@@ -92,7 +92,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/surgery-care/production/1541183845257-2018-11-02T18:37:25.257Z/surgery-care.zip"
+          "S3Key": "serverless/surgery-care/production/1542915626978-2018-11-22T19:40:26.978Z/surgery-care.zip"
         },
         "FunctionName": "surgery-care-production-api",
         "Handler": "lambda.universal",
@@ -111,14 +111,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "ApiLambdaVersionJxpqAauZUOn0d77XtSncyQ48fXHoXw53E7vbReFTVM": {
+    "ApiLambdaVersion09fuvIdh2i6Nv86INLuvN2z7SE9YpQQ6QVslnvvnJUI": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "ApiLambdaFunction"
         },
-        "CodeSha256": "EtRUJrd5xcnjcc8NXqme2J0Rp1v7fWKPGmRxj32C6ow="
+        "CodeSha256": "yyyzpUOSs+go7nPajjwlsv81Q2Gt2TnkCy+/YFlxjIE="
       }
     },
     "ApiGatewayRestApi": {
@@ -167,7 +167,11 @@
             "Fn::Join": [
               "",
               [
-                "arn:aws:apigateway:",
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":apigateway:",
                 {
                   "Ref": "AWS::Region"
                 },
@@ -209,7 +213,11 @@
             "Fn::Join": [
               "",
               [
-                "arn:aws:apigateway:",
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":apigateway:",
                 {
                   "Ref": "AWS::Region"
                 },
@@ -228,7 +236,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1541183845270": {
+    "ApiGatewayDeployment1542915627002": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -251,12 +259,26 @@
           ]
         },
         "Action": "lambda:InvokeFunction",
-        "Principal": "apigateway.amazonaws.com",
+        "Principal": {
+          "Fn::Join": [
+            "",
+            [
+              "apigateway.",
+              {
+                "Ref": "AWS::URLSuffix"
+              }
+            ]
+          ]
+        },
         "SourceArn": {
           "Fn::Join": [
             "",
             [
-              "arn:aws:execute-api:",
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:",
               {
                 "Ref": "AWS::Region"
               },
@@ -284,7 +306,7 @@
     "ApiLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "ApiLambdaVersionJxpqAauZUOn0d77XtSncyQ48fXHoXw53E7vbReFTVM"
+        "Ref": "ApiLambdaVersion09fuvIdh2i6Nv86INLuvN2z7SE9YpQQ6QVslnvvnJUI"
       }
     },
     "ServiceEndpoint": {
@@ -297,7 +319,11 @@
             {
               "Ref": "ApiGatewayRestApi"
             },
-            ".execute-api.us-east-1.amazonaws.com/production"
+            ".execute-api.us-east-1.",
+            {
+              "Ref": "AWS::URLSuffix"
+            },
+            "/production"
           ]
         ]
       }

@@ -15,66 +15,39 @@
           <label for="">Credit / Debit</label>
         </div>
         <div class="payment-card__header--flex-one">
-          <img
-            src="https://i2.wp.com/devonmoving.com/wp-content/uploads/2015/01/credit-card-icons-png.png?ssl=1"
-            alt=""
-          >
+          <img src="https://i2.wp.com/devonmoving.com/wp-content/uploads/2015/01/credit-card-icons-png.png?ssl=1" alt="">
         </div>
       </div>
       <div class="payment-card__container">
         <form>
           <label>
-            <input
-              name="cardholder-name"
-              class="field field--text is-empty"
-              placeholder="Jane Doe"
-              autocomplete="off"
-            />
+            <input name="cardholder-name" class="field field--text is-empty" placeholder="Jane Doe" autocomplete="off" />
             <span>
               <span>Name</span>
             </span>
           </label>
           <label>
-            <input
-              class="field field--text is-empty"
-              type="tel"
-              placeholder="(123) 456-7890"
-            />
+            <input class="field field--text is-empty" type="tel" placeholder="(123) 456-7890" />
             <span>
               <span>Phone number</span>
             </span>
           </label>
           <label>
-            <div
-              id="card-element"
-              class="field is-empty"
-            ></div>
+            <div id="card-element" class="field is-empty"></div>
             <span>
               <span>Credit or debit card</span>
             </span>
           </label>
 
-          <input
-            style="display: none"
-            type="text"
-          >
+          <input style="display: none" type="text">
           <div class="outcome">
 
-            <div
-              class="error"
-              role="alert"
-            ></div>
+            <div class="error" role="alert"></div>
 
-            <div class="success"><span
-                #getToken
-                class="token"
-              ></span></div>
+            <div class="success"><span #getToken class="token"></span></div>
           </div>
 
-          <button
-            (click)="onSubmit()"
-            type="submit"
-          >Checkout <span class="icon-arrow-right"></span> </button>
+          <button (click)="onSubmit()" type="submit">Checkout <span class="icon-arrow-right"></span> </button>
 
         </form>
       </div>
@@ -86,17 +59,14 @@
       <h3>Please select a memebership</h3>
       <a [routerLink]="['/payments']">Select my plan</a>
     </div>
-    <div
-      class="payment"
-      *ngIf="membership"
-    >
+    <div class="payment" *ngIf="membership">
       <div>
         <h2 class="subtitle">Summary</h2>
       </div>
 
       <div class="payment__container">
         <div class="payment__items">
-          <span>Packet</span>
+          <span>Package</span>
           <strong>Full support</strong>
         </div>
         <div class="payment__items">
@@ -125,7 +95,7 @@
           </div>
           <span>
             Your payment is 100% secure. We
-            won’t store any personal or finnacial
+            won’t store any personal or financial
             information
           </span>
 

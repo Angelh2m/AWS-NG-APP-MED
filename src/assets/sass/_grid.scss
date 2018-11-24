@@ -97,7 +97,7 @@
   /* -webkit-transform: skew(15deg, 15deg); */
   /* transform: skew(15deg, 15deg); */
   z-index: -9;
-  left: -30vw;
+  left: -50vw;
   background-color: whitesmoke;
   background-color: #f7f7f7;
   transform: rotate(-8deg);
@@ -135,6 +135,7 @@
 .purple-card {
   background-color: white;
   padding: 3.5rem;
+
 //   box-shadow: 1px 1px 8px 3px #a29d9d8a;
 
   margin-bottom: 5rem;
@@ -153,7 +154,18 @@
     align-items: center;
   }
   i{
-    margin-right: 1rem;
+    margin-right: 2.5rem;
+  }
+
+  .bullet-number{
+    small{
+          position: absolute;
+    z-index: 9;
+    color: white;
+    margin: .1rem 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    }
   }
 }
 
